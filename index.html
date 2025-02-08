@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TeachVic Jobs</title>
+</head>
+<body>
+    <h1>TeachVic Job Listings</h1>
+    <script>
+        fetch("app.json")
+            .then(response => response.json())
+            .then(data => {
+                document.body.innerHTML += `<pre>${JSON.stringify(data, null, 2)}</pre>`;
+            })
+            .catch(error => console.error("Error loading JSON:", error));
+    </script>
+</body>
+</html>
