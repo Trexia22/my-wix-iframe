@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TeachVic Job Listings</title>
+    <script>
+        async function loadJobs() {
+            const response = await fetch("jobs.json"); // Change this to your actual JSON file URL
+            const jobs = await response.json();
+            const jobContainer = document.getElementById("jobs");
+
+            jobs.service.fields.forEach(field => {
+                const jobItem = document.createElement("p");
+                jobItem.textContent = field;
+                jobContainer.appendChild(jobItem);
+            });
+        }
+        window.onload = loadJobs;
+    </script>
+</head>
+<body>
+    <h1>TeachVic Job Listings</h1>
+    <div id="jobs">Loading jobs...</div>
+</body>
+</html>
